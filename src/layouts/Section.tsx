@@ -7,7 +7,7 @@ function Section({
 }) {
   return (
     <section
-      className={`relative bg-white border py-12 px-16 rounded-lg ${className}`}
+      className={`relative bg-white border py-8 px-6 sm:py-12 sm:px-16 rounded-lg ${className}`}
     >
       {children}
     </section>

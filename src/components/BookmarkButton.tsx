@@ -1,7 +1,7 @@
 function BookmarkButton({ bookmarked }: { bookmarked: boolean }) {
   return (
     <button
-      className={`group flex items-center gap-4 pr-6 bg-gray-50 ${
+      className={`group flex items-center gap-4 bg-gray-50 ${
         bookmarked ? "text-dark-cyan" : "text-dark-gray"
       } rounded-full font-semibold group-hover:bg-dark-cyan leading-none`}
     >
@@ -23,7 +23,9 @@ function BookmarkButton({ bookmarked }: { bookmarked: boolean }) {
           />
         </g>
       </svg>
-      {bookmarked ? "Bookmarked" : "Bookmark"}
+      <span className="pr-6 inline sm-3:hidden sm-2:inline">
+        {bookmarked ? "Bookmarked" : "Bookmark"}
+      </span>
     </button>
   );
 }
