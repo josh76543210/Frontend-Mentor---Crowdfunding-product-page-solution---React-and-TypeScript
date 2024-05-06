@@ -6,7 +6,7 @@ function BookmarkButton({ bookmarked }: { bookmarked: boolean }) {
       } rounded-full font-semibold group-hover:bg-dark-cyan leading-none`}
     >
       <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <circle
             className={`${
               bookmarked ? "fill-dark-cyan" : "group-hover:fill-dark-gray"
