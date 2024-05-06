@@ -26,7 +26,7 @@ function RewardCard({
           Pledge ${minPledge} or more
         </h4>
       </div>
-      <Paragraph>{description}</Paragraph>
+      <Paragraph className="mb-6">{description}</Paragraph>
       <div className="sm:flex justify-between items-center">
         <p className="text-dark-gray flex items-center gap-2 mb-8 sm:mb-0">
           <span className="font-bold text-4xl text-black">{numLeft}</span>
