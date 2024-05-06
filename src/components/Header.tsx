@@ -59,7 +59,10 @@ function Header() {
       </header>
       {/* dark overlay for behind moblie menu */}
       {openNav && (
-        <div className="z-30 absolute top-0 left-0 right-0 bottom-0 bg-black/[0.4]"></div>
+        <div
+          className="z-30 absolute top-0 left-0 right-0 bottom-0 bg-black/[0.4]"
+          onClick={() => setOpenNav(false)}
+        ></div>
       )}
     </>
   );
