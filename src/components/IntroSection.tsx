@@ -15,10 +15,10 @@ function IntroSection() {
       <h1 className="text-center m-4 font-bold text-3xl">
         Mastercraft Bamboo Monitor Riser
       </h1>
-      <p className="text-center text-dark-gray mb-8">
+      <h2 className="text-center text-dark-gray mb-8">
         A beautiful &amp; handcrafted monitor stand to reduce neck and eye
         strain.
-      </p>
+      </h2>
       <div className="flex items-center justify-between">
         <Button>Back this project</Button>
         <BookmarkButton bookmarked={true} />
