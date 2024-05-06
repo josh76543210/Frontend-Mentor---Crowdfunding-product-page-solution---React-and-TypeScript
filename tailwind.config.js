@@ -17,6 +17,8 @@ export default {
         // => @media (min-width: 550px) { ... }
         "sm-3": "400px",
         // => @media (min-width: 400px) { ... }
+        "md-1": "700px",
+        // => @media (min-width: 700px) { ... }
       },
     },
     fontFamily: {
