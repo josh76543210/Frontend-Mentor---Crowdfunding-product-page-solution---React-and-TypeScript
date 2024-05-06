@@ -19,50 +19,59 @@ function Header() {
   }, []);
 
   return (
-    <header className="flex items-center justify-between py-8 sm:py-4 relative w-full max-w-6xl mx-auto">
-      <img src={logo} alt="Crowdfund logo" className="w-36 object-contain" />
-      <nav>
-        <ul
-          className={`z-50 ${
-            openNav ? "block" : "hidden"
-          } absolute bottom-0 left-0 right-0 translate-y-full rounded-lg bg-white font-semibold sm:static sm:translate-y-0 sm:bg-transparent sm:flex gap-1 sm:text-white`}
-        >
-          <li className="p-6 sm:p-4 border-b border-b-gray-200 sm:border-b-0">
-            <a
-              href="#"
-              className="pb-1 border-b-2 border-transparent sm:hover:border-white"
-            >
-              About
-            </a>
-          </li>
-          <li className="p-6 sm:p-4 border-b border-b-gray-200 sm:border-b-0">
-            {" "}
-            <a
-              href="#"
-              className="pb-1 border-b-2 border-transparent sm:hover:border-white"
-            >
-              Discover
-            </a>
-          </li>
-          <li className="p-6 sm:p-4">
-            {" "}
-            <a
-              href="#"
-              className="pb-1 border-b-2 border-transparent sm:hover:border-white"
-            >
-              Get Started
-            </a>
-          </li>
-        </ul>
-        <button className="sm:hidden" onClick={() => setOpenNav((cur) => !cur)}>
-          {openNav ? (
-            <img src={closeMenuIcon} alt="" />
-          ) : (
-            <img src={hamburgerIcon} alt="" />
-          )}
-        </button>
-      </nav>
-    </header>
+    <>
+      <header className="z-40 flex items-center justify-between py-8 sm:py-4 relative w-full max-w-6xl mx-auto">
+        <img src={logo} alt="Crowdfund logo" className="w-36 object-contain" />
+        <nav>
+          <ul
+            className={`z-50 ${
+              openNav ? "block" : "hidden"
+            } absolute bottom-0 left-0 right-0 translate-y-full rounded-lg bg-white font-semibold sm:static sm:translate-y-0 sm:bg-transparent sm:flex gap-1 sm:text-white`}
+          >
+            <li className="p-6 sm:p-4 border-b border-b-gray-200 sm:border-b-0">
+              <a
+                href="#"
+                className="pb-1 border-b-2 border-transparent sm:hover:border-white"
+              >
+                About
+              </a>
+            </li>
+            <li className="p-6 sm:p-4 border-b border-b-gray-200 sm:border-b-0">
+              {" "}
+              <a
+                href="#"
+                className="pb-1 border-b-2 border-transparent sm:hover:border-white"
+              >
+                Discover
+              </a>
+            </li>
+            <li className="p-6 sm:p-4">
+              {" "}
+              <a
+                href="#"
+                className="pb-1 border-b-2 border-transparent sm:hover:border-white"
+              >
+                Get Started
+              </a>
+            </li>
+          </ul>
+          <button
+            className="sm:hidden"
+            onClick={() => setOpenNav((cur) => !cur)}
+          >
+            {openNav ? (
+              <img src={closeMenuIcon} alt="" />
+            ) : (
+              <img src={hamburgerIcon} alt="" />
+            )}
+          </button>
+        </nav>
+      </header>
+      {/* dark overlay for behind moblie menu */}
+      {openNav && (
+        <div className="z-30 absolute top-0 left-0 right-0 bottom-0 bg-black/[0.4]"></div>
+      )}
+    </>
   );
 }
 
