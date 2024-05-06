@@ -1,6 +1,12 @@
-export default function Paragraph({ children }: { children: React.ReactNode }) {
+export default function Paragraph({
+  children,
+  id = "",
+}: {
+  children: React.ReactNode;
+  id?: string;
+}) {
   return (
-    <p className="text-dark-gray mb-6 leading-relaxed sm:leading-loose">
+    <p id={id} className="text-dark-gray mb-6 leading-relaxed sm:leading-loose">
       {children}
     </p>
   );

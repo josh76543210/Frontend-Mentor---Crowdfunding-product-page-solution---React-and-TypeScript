@@ -20,6 +20,11 @@ export default {
         "md-1": "700px",
         // => @media (min-width: 700px) { ... }
       },
+      zIndex: {
+        60: "60",
+        70: "70",
+        80: "80",
+      },
     },
     fontFamily: {
       commissioner: ["Commissioner", "sans-serif"],

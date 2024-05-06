@@ -5,6 +5,7 @@ import Page from "./layouts/Page";
 import IntroSection from "./components/IntroSection";
 import StatsSection from "./components/StatsSection";
 import AboutSection from "./components/AboutSection";
+import PledgeModal from "./components/PledgeModal";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <AboutSection />
       </Main>
       <Footer />
+      <PledgeModal />
     </Page>
   );
 }
