@@ -1,24 +1,40 @@
 import Paragraph from "../layouts/Paragraph";
 import Button from "./Button";
 
-function RewardCard() {
+function RewardCard({
+  title,
+  description,
+  minPledge,
+  numLeft,
+}: {
+  title: string;
+  description: string;
+  minPledge: number;
+  numLeft: number;
+}) {
+  const outOfStock = numLeft === 0;
+
   return (
-    <div className="border rounded-lg p-5 sm:p-8">
+    <div
+      className={`border rounded-lg p-5 sm:p-8 ${
+        outOfStock ? "opacity-35" : ""
+      }`}
+    >
       <div className="mb-8 sm:flex justify-between">
-        <h3 className="font-bold mb-1 sm:mb-0">Bamboo Stand</h3>
-        <h4 className="font-semibold text-moderate-cyan">Pledge $25 or more</h4>
+        <h3 className="font-bold mb-1 sm:mb-0">{title}</h3>
+        <h4 className="font-semibold text-moderate-cyan">
+          Pledge ${minPledge} or more
+        </h4>
       </div>
-      <Paragraph>
-        You get an ergonomic stand made of natural bamboo. You've helped us
-        launch our promotional campaign, and you'll be added to a special Backer
-        member list.
-      </Paragraph>
+      <Paragraph>{description}</Paragraph>
       <div className="sm:flex justify-between items-center">
         <p className="text-dark-gray flex items-center gap-2 mb-8 sm:mb-0">
-          <span className="font-bold text-4xl text-black">101</span>
+          <span className="font-bold text-4xl text-black">{numLeft}</span>
           left
         </p>
-        <Button>Select Reward</Button>
+        <Button disable={outOfStock}>
+          {outOfStock ? "Out of Stock" : "Select Reward"}
+        </Button>
       </div>
     </div>
   );
