@@ -4,6 +4,19 @@ import logo from "../assets/images/logo.svg";
 import closeMenuIcon from "../assets/images/icon-close-menu.svg";
 import hamburgerIcon from "../assets/images/icon-hamburger.svg";
 
+function NavListItem({ children }: { children: React.ReactNode }) {
+  return (
+    <li className="sm:p-4 border-b border-b-gray-200 sm:border-b-0">
+      <a
+        href="#"
+        className="p-6 sm:p-0 block sm:inline sm:pb-1 border-b-2 border-transparent hover:text-dark-cyan sm:hover:border-white sm:hover:text-white"
+      >
+        {children}
+      </a>
+    </li>
+  );
+}
+
 function Header() {
   const [openNav, setOpenNav] = useState(false);
 
@@ -26,34 +39,11 @@ function Header() {
           <ul
             className={`z-50 ${
               openNav ? "block" : "hidden"
-            } absolute bottom-0 left-0 right-0 translate-y-full rounded-lg bg-white font-semibold sm:static sm:translate-y-0 sm:bg-transparent sm:flex gap-1 sm:text-white`}
+            } absolute bottom-0 left-0 right-0 translate-y-full rounded-lg bg-white font-semibold sm:static sm:translate-y-0 sm:bg-transparent sm:flex gap-1 sm:text-white overflow-hidden`}
           >
-            <li className="p-6 sm:p-4 border-b border-b-gray-200 sm:border-b-0">
-              <a
-                href="#"
-                className="pb-1 border-b-2 border-transparent sm:hover:border-white"
-              >
-                About
-              </a>
-            </li>
-            <li className="p-6 sm:p-4 border-b border-b-gray-200 sm:border-b-0">
-              {" "}
-              <a
-                href="#"
-                className="pb-1 border-b-2 border-transparent sm:hover:border-white"
-              >
-                Discover
-              </a>
-            </li>
-            <li className="p-6 sm:p-4">
-              {" "}
-              <a
-                href="#"
-                className="pb-1 border-b-2 border-transparent sm:hover:border-white"
-              >
-                Get Started
-              </a>
-            </li>
+            <NavListItem>About</NavListItem>
+            <NavListItem>Discover</NavListItem>
+            <NavListItem>Get Started</NavListItem>
           </ul>
           <button
             className="sm:hidden"
