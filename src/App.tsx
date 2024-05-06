@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Main from "./layouts/Main";
 import Page from "./layouts/Page";
 import IntroSection from "./components/IntroSection";
+import StatsSection from "./components/StatsSection";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Header />
       <Main>
         <IntroSection />
-        <IntroSection />
+        <StatsSection />
       </Main>
       <Footer />
     </Page>
