@@ -1,22 +1,27 @@
+import { usePledgeData } from "../contexts/PledgeDataContext";
 import Paragraph from "../layouts/Paragraph";
 import Button from "./Button";
 
 function PledgeCard({
+  id,
   title,
   description,
   minPledge = 1,
   numLeft = 1,
-  active = false,
   noReward = false,
 }: {
+  id: string;
   title: string;
   description: string;
   minPledge?: number;
   numLeft?: number;
-  active?: boolean;
   noReward?: boolean;
 }) {
   const outOfStock = numLeft === 0;
+
+  const { modalState } = usePledgeData();
+
+  const active = id === modalState;
 
   return (
     <div

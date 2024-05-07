@@ -1,18 +1,23 @@
+import { usePledgeData } from "../contexts/PledgeDataContext";
 import Paragraph from "../layouts/Paragraph";
 import Button from "./Button";
 
 function RewardCard({
+  id,
   title,
   description,
   minPledge,
   numLeft,
 }: {
+  id: string;
   title: string;
   description: string;
   minPledge: number;
   numLeft: number;
 }) {
   const outOfStock = numLeft === 0;
+
+  const { dispatch } = usePledgeData();
 
   return (
     <div
@@ -32,7 +37,10 @@ function RewardCard({
           <span className="font-bold text-4xl text-black">{numLeft}</span>
           left
         </p>
-        <Button disable={outOfStock}>
+        <Button
+          disable={outOfStock}
+          onclick={() => dispatch({ type: `setModal`, payload: id })}
+        >
           {outOfStock ? "Out of Stock" : "Select Reward"}
         </Button>
       </div>

@@ -7,7 +7,7 @@ function ModalContainer() {
 
   return (
     <div>
-      {modalState === "open" && <PledgeModal />}
+      {modalState !== "close" && modalState !== "thanks" && <PledgeModal />}
       {modalState === "thanks" && <ThanksModal />}
     </div>
   );
