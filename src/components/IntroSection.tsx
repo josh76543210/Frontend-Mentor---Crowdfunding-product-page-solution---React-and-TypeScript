@@ -7,7 +7,6 @@ import { usePledgeData } from "../contexts/PledgeDataContext";
 
 function IntroSection() {
   const { dispatch } = usePledgeData();
-  console.log(dispatch);
 
   return (
     <Section>

@@ -40,6 +40,8 @@ function reducer(
   switch (action.type) {
     case "openPledgeModal":
       return { ...state, modalState: "open" };
+    case "closeModal":
+      return { ...state, modalState: "close" };
     default:
       throw new Error("Action unknown");
   }

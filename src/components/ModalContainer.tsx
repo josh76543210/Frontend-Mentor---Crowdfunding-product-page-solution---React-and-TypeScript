@@ -8,7 +8,7 @@ function ModalContainer() {
   return (
     <div>
       {modalState === "open" && <PledgeModal />}
-      {modalState === "thnaks" && <ThanksModal />}
+      {modalState === "thanks" && <ThanksModal />}
     </div>
   );
 }
