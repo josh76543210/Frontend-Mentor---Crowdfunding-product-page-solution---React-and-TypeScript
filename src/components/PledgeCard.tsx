@@ -76,7 +76,7 @@ function PledgeCard({
             <Button
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch({ type: "makePledge" });
+                dispatch({ type: "makePledge", payload: id });
               }}
             >
               Continue

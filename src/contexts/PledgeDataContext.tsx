@@ -48,7 +48,15 @@ function reducer(
     case "toggleBookmark":
       return { ...state, bookMarked: !state.bookMarked };
     case "makePledge":
-      return { ...state, modalState: "thanks" };
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.id === action.payload)
+            return { ...item, numLeft: item.numLeft - 1 };
+          else return item;
+        }),
+        modalState: "thanks",
+      };
     default:
       throw new Error("Action unknown");
   }
