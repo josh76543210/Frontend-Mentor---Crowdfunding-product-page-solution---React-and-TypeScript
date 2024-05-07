@@ -43,10 +43,12 @@ function reducer(
       return { ...state, modalState: "open" };
     case "closeModal":
       return { ...state, modalState: "closed" };
-    case "toggleBookmark":
-      return { ...state, bookMarked: !state.bookMarked };
     case "setModal":
       return { ...state, modalState: String(action.payload) };
+    case "toggleBookmark":
+      return { ...state, bookMarked: !state.bookMarked };
+    case "makePledge":
+      return { ...state, modalState: "thanks" };
     default:
       throw new Error("Action unknown");
   }

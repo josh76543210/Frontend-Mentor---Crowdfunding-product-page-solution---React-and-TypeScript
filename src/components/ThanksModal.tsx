@@ -3,8 +3,10 @@ import Modal from "../layouts/Modal";
 import checkIcon from "../assets/images/icon-check.svg";
 import Button from "./Button";
 import Paragraph from "../layouts/Paragraph";
+import { usePledgeData } from "../contexts/PledgeDataContext";
 
 function ThanksModal() {
+  const { dispatch } = usePledgeData();
   return (
     <Modal
       className="py-10 max-w-lg"
@@ -19,7 +21,12 @@ function ThanksModal() {
           Monitor Riser worldwide. You will get an email once our campaign is
           completed.
         </Paragraph>
-        <Button ariaLabel="close">Got it!</Button>
+        <Button
+          ariaLabel="close"
+          onClick={() => dispatch({ type: "closeModal" })}
+        >
+          Got it!
+        </Button>
       </div>
     </Modal>
   );

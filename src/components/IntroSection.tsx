@@ -22,7 +22,7 @@ function IntroSection() {
         A beautifully handcrafted monitor stand to reduce neck and eye strain.
       </h2>
       <div className="flex flex-col sm-3:flex-row gap-5 items-center justify-between">
-        <Button onclick={() => dispatch({ type: "openPledgeModal" })}>
+        <Button onClick={() => dispatch({ type: "openPledgeModal" })}>
           Back this project
         </Button>
         <BookmarkButton />

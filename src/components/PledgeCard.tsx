@@ -73,7 +73,14 @@ function PledgeCard({
                 className="py-4 border-2 rounded-full w-full shrink-1 focus:outline-none relative focus:border-2 focus:border-moderate-cyan h-full pl-9 font-bold"
               />
             </div>
-            <Button>Continue</Button>
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                dispatch({ type: "makePledge" });
+              }}
+            >
+              Continue
+            </Button>
           </div>
         </div>
       )}

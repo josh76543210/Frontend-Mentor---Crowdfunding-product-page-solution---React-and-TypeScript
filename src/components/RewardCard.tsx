@@ -39,7 +39,7 @@ function RewardCard({
         </p>
         <Button
           disable={outOfStock}
-          onclick={() => dispatch({ type: `setModal`, payload: id })}
+          onClick={() => dispatch({ type: `setModal`, payload: id })}
         >
           {outOfStock ? "Out of Stock" : "Select Reward"}
         </Button>
