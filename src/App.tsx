@@ -5,22 +5,24 @@ import Page from "./layouts/Page";
 import IntroSection from "./components/IntroSection";
 import StatsSection from "./components/StatsSection";
 import AboutSection from "./components/AboutSection";
-import PledgeModal from "./components/PledgeModal";
-import ThanksModal from "./components/ThanksModal";
+import ModalContainer from "./components/ModalContainer";
+
+import { PledgeDataProvider } from "./contexts/PledgeDataContext";
 
 function App() {
   return (
-    <Page>
-      <Header />
-      <Main>
-        <IntroSection />
-        <StatsSection />
-        <AboutSection />
-      </Main>
-      <Footer />
-      {/* <PledgeModal /> */}
-      <ThanksModal />
-    </Page>
+    <PledgeDataProvider>
+      <Page>
+        <Header />
+        <Main>
+          <IntroSection />
+          <StatsSection />
+          <AboutSection />
+        </Main>
+        <Footer />
+        <ModalContainer />
+      </Page>
+    </PledgeDataProvider>
   );
 }
 
