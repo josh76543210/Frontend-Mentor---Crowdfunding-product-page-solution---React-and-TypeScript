@@ -3,12 +3,12 @@ import PledgeModal from "./PledgeModal";
 import ThanksModal from "./ThanksModal";
 
 function ModalContainer() {
-  const { openPledgeModal, openThanksModal } = usePledgeData();
+  const { modalState } = usePledgeData();
 
   return (
     <div>
-      {openPledgeModal && <PledgeModal />}
-      {openThanksModal && <ThanksModal />}
+      {modalState === "open" && <PledgeModal />}
+      {modalState === "thnaks" && <ThanksModal />}
     </div>
   );
 }

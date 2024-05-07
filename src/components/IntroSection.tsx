@@ -6,7 +6,8 @@ import BookmarkButton from "./BookmarkButton";
 import { usePledgeData } from "../contexts/PledgeDataContext";
 
 function IntroSection() {
-  const { setOpenPledgeModal } = usePledgeData();
+  const { dispatch } = usePledgeData();
+  console.log(dispatch);
 
   return (
     <Section>
@@ -22,7 +23,7 @@ function IntroSection() {
         A beautifully handcrafted monitor stand to reduce neck and eye strain.
       </h2>
       <div className="flex flex-col sm-3:flex-row gap-5 items-center justify-between">
-        <Button onclick={() => setOpenPledgeModal(true)}>
+        <Button onclick={() => dispatch({ type: "openPledgeModal" })}>
           Back this project
         </Button>
         <BookmarkButton bookmarked={true} />

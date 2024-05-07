@@ -1,8 +1,23 @@
 export interface IPledgeData {
-  activeReward: string;
-  setActiveReward: (arg0: string) => void;
-  openPledgeModal: boolean;
-  setOpenPledgeModal: (arg0: boolean) => void;
-  openThanksModal: boolean;
-  setOpenThanksModal: (arg0: boolean) => void;
+  items: {
+    id: string;
+    title: string;
+    description: string;
+    minPledge: number;
+    numLeft: number;
+  }[];
+  modalState: string;
+}
+
+export interface IPledgeDataProvider {
+  items: {
+    id: string;
+    title: string;
+    description: string;
+    minPledge: number;
+    numLeft: number;
+  }[];
+  modalState: string;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  dispatch: Function;
 }
