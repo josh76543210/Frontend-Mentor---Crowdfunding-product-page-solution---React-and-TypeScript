@@ -8,9 +8,9 @@ function Page({ children }: { children: React.ReactNode }) {
       before:block
       before:bg-gradient-to-b
       before:from-black
-      before:from-5%
+      before:from-0%
       before:to-transparent
-      before:to-30%
+      before:to-15%
       before:opacity-75
       before:z-[-5]"
     >

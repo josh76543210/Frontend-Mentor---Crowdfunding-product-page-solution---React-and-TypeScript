@@ -15,7 +15,11 @@ function Modal({
 
   return (
     <div
-      onClick={() => dispatch({ type: "closeModal" })}
+      onClick={(e) => {
+        // no action if children are clicked
+        if (e.target !== e.currentTarget) return;
+        dispatch({ type: "closeModal" });
+      }}
       className={`z-60 fixed top-0 left-0 right-0 bottom-0 bg-black/[0.4] flex justify-center py-32 lg:py-48 px-6 overflow-y-scroll ${classNameOverlay}`}
     >
       <div
