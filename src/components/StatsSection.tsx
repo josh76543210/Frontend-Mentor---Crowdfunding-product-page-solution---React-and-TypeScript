@@ -1,3 +1,4 @@
+import { usePledgeData } from "../contexts/PledgeDataContext";
 import Section from "../layouts/Section";
 
 function Stat({ title, subTitle }: { title: string; subTitle: string }) {
@@ -15,15 +16,24 @@ function StatDivider() {
   );
 }
 
+function numberWithCommas(x: number) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function StatsSection() {
+  const { totalPledged, totalBackers, daysLeft } = usePledgeData();
+
   return (
     <Section>
       <div className="flex flex-col md-1:flex-row items-center md-1:items-stretch gap-8 md-1:gap-12 mb-10 text-center md-1:text-left">
-        <Stat title="$89,914" subTitle="of $100,000 backend" />
+        <Stat
+          title={`$${numberWithCommas(totalPledged)}`}
+          subTitle="of $100,000 backend"
+        />
         <StatDivider />
-        <Stat title="5,007" subTitle="total backers" />
+        <Stat title={numberWithCommas(totalBackers)} subTitle="total backers" />
         <StatDivider />
-        <Stat title="56" subTitle="days left" />
+        <Stat title={numberWithCommas(daysLeft)} subTitle="days left" />
       </div>
       <div className="h-3 bg-slate-100 overflow-hidden rounded-full after:content-[''] after:block after:w-3/4 after:h-full after:bg-moderate-cyan after:rounded-full"></div>
     </Section>

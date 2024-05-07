@@ -8,6 +8,9 @@ export interface IPledgeData {
   }[];
   modalState: string;
   bookMarked: boolean;
+  totalPledged: number;
+  totalBackers: number;
+  daysLeft: number;
 }
 
 export interface IPledgeDataProvider {
@@ -20,6 +23,9 @@ export interface IPledgeDataProvider {
   }[];
   modalState: string;
   bookMarked: boolean;
+  totalPledged: number;
+  totalBackers: number;
+  daysLeft: number;
   // eslint-disable-next-line @typescript-eslint/ban-types
   dispatch: Function;
 }

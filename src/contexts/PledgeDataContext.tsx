@@ -31,6 +31,9 @@ const initialState = {
   ],
   modalState: "closed", // "open" [all item ids], "thanks"
   bookMarked: false,
+  totalPledged: 89914,
+  totalBackers: 5007,
+  daysLeft: 56,
 };
 
 // reducer function that contains the logic for updating the state
@@ -66,13 +69,16 @@ const PledgeDataContext = createContext<IPledgeData>({
   items: [],
   modalState: "closed",
   bookMarked: false,
+  totalPledged: 0,
+  totalBackers: 0,
+  daysLeft: 0,
 });
 
 function PledgeDataProvider({ children }: { children: React.ReactNode }) {
-  const [{ items, modalState, bookMarked }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [
+    { items, modalState, bookMarked, totalPledged, totalBackers, daysLeft },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   return (
     <PledgeDataContext.Provider
@@ -81,6 +87,9 @@ function PledgeDataProvider({ children }: { children: React.ReactNode }) {
           items,
           modalState,
           bookMarked,
+          totalPledged,
+          totalBackers,
+          daysLeft,
           dispatch,
         } as IPledgeDataProvider
       }
