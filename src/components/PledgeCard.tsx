@@ -19,12 +19,13 @@ function PledgeCard({
 }) {
   const outOfStock = numLeft === 0;
 
-  const { modalState } = usePledgeData();
+  const { modalState, dispatch } = usePledgeData();
 
   const active = id === modalState;
 
   return (
     <div
+      onClick={() => dispatch({ type: "setModal", payload: id })}
       className={`border-2 group ${
         active ? "border-moderate-cyan" : "cursor-pointer"
       } rounded-lg ${outOfStock ? "opacity-35 pointer-events-none" : ""}`}
