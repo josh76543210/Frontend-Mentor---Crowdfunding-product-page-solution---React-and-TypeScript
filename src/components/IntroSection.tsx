@@ -25,7 +25,7 @@ function IntroSection() {
         <Button onclick={() => dispatch({ type: "openPledgeModal" })}>
           Back this project
         </Button>
-        <BookmarkButton bookmarked={true} />
+        <BookmarkButton />
       </div>
     </Section>
   );

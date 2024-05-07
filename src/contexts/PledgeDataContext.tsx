@@ -30,6 +30,7 @@ const initialState = {
     },
   ],
   modalState: "closed", // "open" [all item ids], "thanks"
+  bookMarked: false,
 };
 
 // reducer function that contains the logic for updating the state
@@ -42,6 +43,8 @@ function reducer(
       return { ...state, modalState: "open" };
     case "closeModal":
       return { ...state, modalState: "close" };
+    case "toggleBookmark":
+      return { ...state, bookMarked: !state.bookMarked };
     default:
       throw new Error("Action unknown");
   }
@@ -50,10 +53,14 @@ function reducer(
 const PledgeDataContext = createContext<IPledgeData>({
   items: [],
   modalState: "closed",
+  bookMarked: false,
 });
 
 function PledgeDataProvider({ children }: { children: React.ReactNode }) {
-  const [{ items, modalState }, dispatch] = useReducer(reducer, initialState);
+  const [{ items, modalState, bookMarked }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   return (
     <PledgeDataContext.Provider
@@ -61,6 +68,7 @@ function PledgeDataProvider({ children }: { children: React.ReactNode }) {
         {
           items,
           modalState,
+          bookMarked,
           dispatch,
         } as IPledgeDataProvider
       }

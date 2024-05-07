@@ -7,6 +7,7 @@ export interface IPledgeData {
     numLeft: number;
   }[];
   modalState: string;
+  bookMarked: boolean;
 }
 
 export interface IPledgeDataProvider {
@@ -18,6 +19,7 @@ export interface IPledgeDataProvider {
     numLeft: number;
   }[];
   modalState: string;
+  bookMarked: boolean;
   // eslint-disable-next-line @typescript-eslint/ban-types
   dispatch: Function;
 }
