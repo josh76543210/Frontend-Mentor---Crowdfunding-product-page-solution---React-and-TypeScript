@@ -29,3 +29,8 @@ export interface IPledgeDataProvider {
   // eslint-disable-next-line @typescript-eslint/ban-types
   dispatch: Function;
 }
+
+export interface IPayload {
+  id: string;
+  pledgeAmount: number;
+}

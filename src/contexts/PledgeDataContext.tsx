@@ -1,5 +1,9 @@
 import { createContext, useContext, useReducer } from "react";
-import { IPledgeData, IPledgeDataProvider } from "../types/pledgeData";
+import {
+  IPayload,
+  IPledgeData,
+  IPledgeDataProvider,
+} from "../types/pledgeData";
 
 // initial state of the application
 const initialState = {
@@ -39,7 +43,10 @@ const initialState = {
 // reducer function that contains the logic for updating the state
 function reducer(
   state: IPledgeData,
-  action: { type: string; payload: number | string }
+  action: {
+    type: string;
+    payload: IPayload;
+  }
 ): IPledgeData {
   switch (action.type) {
     case "openPledgeModal":
@@ -47,18 +54,30 @@ function reducer(
     case "closeModal":
       return { ...state, modalState: "closed" };
     case "setModal":
-      return { ...state, modalState: String(action.payload) };
+      return { ...state, modalState: String(action.payload.id) };
     case "toggleBookmark":
       return { ...state, bookMarked: !state.bookMarked };
     case "makePledge":
+      // if minimun amount is not met
+      if (
+        action.payload.pledgeAmount <
+        state.items.filter((item) => item.id === action.payload.id)[0][
+          "minPledge"
+        ]
+      ) {
+        alert("Minium pledge not met");
+        return state;
+      }
+
       return {
         ...state,
         items: state.items.map((item) => {
-          if (item.id === action.payload)
+          if (item.id === action.payload.id)
             return { ...item, numLeft: item.numLeft - 1 };
           else return item;
         }),
         modalState: "thanks",
+        totalBackers: state.totalBackers + 1,
       };
     default:
       throw new Error("Action unknown");

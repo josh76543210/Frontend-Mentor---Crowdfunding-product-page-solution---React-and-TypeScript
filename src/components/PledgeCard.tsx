@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { usePledgeData } from "../contexts/PledgeDataContext";
 import Paragraph from "../layouts/Paragraph";
 import Button from "./Button";
@@ -23,9 +24,11 @@ function PledgeCard({
 
   const active = id === modalState;
 
+  const [pledgeAmount, setPledgeAmount] = useState(minPledge);
+
   return (
     <div
-      onClick={() => dispatch({ type: "setModal", payload: id })}
+      onClick={() => dispatch({ type: "setModal", payload: { id } })}
       className={`border-2 group ${
         active ? "border-moderate-cyan" : "cursor-pointer"
       } rounded-lg ${outOfStock ? "opacity-35 pointer-events-none" : ""}`}
@@ -69,14 +72,15 @@ function PledgeCard({
             <div className="relative before:content-['$'] before:absolute before:top-1/2 before:left-5 before:block before:text-gray-300 before:z-10 before:-translate-y-1/2 before:font-bold">
               <input
                 type="text"
-                defaultValue={minPledge}
+                value={pledgeAmount}
+                onChange={(e) => setPledgeAmount(Number(e.target.value))}
                 className="py-4 border-2 rounded-full w-full shrink-1 focus:outline-none relative focus:border-2 focus:border-moderate-cyan h-full pl-9 font-bold"
               />
             </div>
             <Button
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch({ type: "makePledge", payload: id });
+                dispatch({ type: "makePledge", payload: { id, pledgeAmount } });
               }}
             >
               Continue
