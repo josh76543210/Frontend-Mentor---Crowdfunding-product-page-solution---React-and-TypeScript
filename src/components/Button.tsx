@@ -1,12 +1,15 @@
 function Button({
   children,
   disable = false,
+  ariaLabel = "",
 }: {
   children: React.ReactNode;
   disable?: boolean;
+  ariaLabel?: string;
 }) {
   return (
     <button
+      aria-label={ariaLabel}
       className={`py-5 px-10 rounded-full font-semibold text-white hover:bg-dark-cyan leading-none ${
         disable ? "pointer-events-none bg-dark-gray" : "bg-moderate-cyan"
       }`}
