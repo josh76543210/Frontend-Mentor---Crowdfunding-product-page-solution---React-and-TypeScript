@@ -32,7 +32,7 @@ function Modal({
           <button
             onClick={() => dispatch({ type: "closeModal" })}
             aria-label="close"
-            className="absolute top-10 sm:top-6 right-6 group"
+            className="p-1 absolute top-9 sm:top-6 right-6 group"
           >
             <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
               <path
