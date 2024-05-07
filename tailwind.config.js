@@ -26,11 +26,8 @@ export default {
         80: "80",
       },
       gridTemplateColumns: {
-        // Simple 16 column grid
-        pledgeCard: "2rem minmax(0, 1fr)",
-
-        // Complex site-specific column configuration
-        footer: "200px minmax(900px, 1fr) 100px",
+        "pledgeCard-2": "2rem minmax(0, 1fr)",
+        "pledgeCard-3": "2rem minmax(0, 1fr) 5rem",
       },
     },
     fontFamily: {

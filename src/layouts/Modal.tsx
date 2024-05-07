@@ -1,8 +1,8 @@
 function Modal({ children }: { children: React.ReactNode }) {
   return (
-    <div className="z-60 fixed top-0 left-0 right-0 bottom-0 bg-black/[0.4] flex justify-center p-6 overflow-y-scroll">
+    <div className="z-60 fixed top-0 left-0 right-0 bottom-0 bg-black/[0.4] flex justify-center py-32 lg:py-48 px-6 overflow-y-scroll">
       <div
-        className="bg-white rounded-lg relative p-8 my-auto"
+        className="bg-white rounded-lg relative p-8 m-auto max-w-3xl"
         role="dialog"
         aria-labelledby="pledge-modal-title"
         aria-describedby="pledge-modal-description"
