@@ -1,6 +1,28 @@
 import { createContext, useState, useContext } from "react";
+import { IPledgeData } from "../types/pledgeData";
 
-const PledgeDataContext = createContext();
+// const initialState = {
+//   items: [
+//     {
+//       id: "bamboo",
+//       title: "Bamboo Stand",
+//       description:
+//         "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you'll be added to a special Backer member list.",
+//       minPledge: 25,
+//       numLeft: 101,
+//     },
+//   ],
+//   status: "default", // [all item ids], "thanks"
+// };
+
+const PledgeDataContext = createContext<IPledgeData>({
+  activeReward: "",
+  setActiveReward: () => {},
+  openPledgeModal: false,
+  setOpenPledgeModal: () => {},
+  openThanksModal: false,
+  setOpenThanksModal: () => {},
+});
 
 function PledgeDataProvider({ children }: { children: React.ReactNode }) {
   const [activeReward, setActiveReward] = useState("");
