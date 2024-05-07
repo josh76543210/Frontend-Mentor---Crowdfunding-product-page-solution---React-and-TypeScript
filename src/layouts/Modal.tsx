@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { usePledgeData } from "../contexts/PledgeDataContext";
 
 function Modal({
@@ -12,6 +13,14 @@ function Modal({
   classNameOverlay?: string;
 }) {
   const { dispatch } = usePledgeData();
+
+  // remove body scroll if modal is shown
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, []);
 
   return (
     <div
