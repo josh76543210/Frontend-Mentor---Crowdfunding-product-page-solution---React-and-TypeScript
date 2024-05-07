@@ -4,7 +4,7 @@ import Paragraph from "../layouts/Paragraph";
 import PledgeCard from "./PledgeCard";
 
 function PledgeModal() {
-  const { items, modalState } = usePledgeData();
+  const { items } = usePledgeData();
 
   return (
     <Modal>

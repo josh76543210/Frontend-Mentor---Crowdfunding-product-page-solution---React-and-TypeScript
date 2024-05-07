@@ -36,17 +36,17 @@ const initialState = {
 // reducer function that contains the logic for updating the state
 function reducer(
   state: IPledgeData,
-  action: { type: string; payload: number }
-) {
+  action: { type: string; payload: number | string }
+): IPledgeData {
   switch (action.type) {
     case "openPledgeModal":
       return { ...state, modalState: "open" };
     case "closeModal":
-      return { ...state, modalState: "close" };
+      return { ...state, modalState: "closed" };
     case "toggleBookmark":
       return { ...state, bookMarked: !state.bookMarked };
     case "setModal":
-      return { ...state, modalState: action.payload };
+      return { ...state, modalState: String(action.payload) };
     default:
       throw new Error("Action unknown");
   }
