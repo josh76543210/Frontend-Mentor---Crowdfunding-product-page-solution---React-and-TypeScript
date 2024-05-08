@@ -38,6 +38,7 @@ const initialState = {
   totalPledged: 89914,
   totalBackers: 5007,
   daysLeft: 56,
+  pledgeError: false,
 };
 
 // reducer function that contains the logic for updating the state
@@ -50,11 +51,15 @@ function reducer(
 ): IPledgeData {
   switch (action.type) {
     case "openPledgeModal":
-      return { ...state, modalState: "open" };
+      return { ...state, modalState: "open", pledgeError: false };
     case "closeModal":
-      return { ...state, modalState: "closed" };
+      return { ...state, modalState: "closed", pledgeError: false };
     case "setModal":
-      return { ...state, modalState: String(action.payload.id) };
+      return {
+        ...state,
+        modalState: String(action.payload.id),
+        pledgeError: false,
+      };
     case "toggleBookmark":
       return { ...state, bookMarked: !state.bookMarked };
     case "makePledge":
@@ -63,8 +68,7 @@ function reducer(
         action.payload.id === "no-reward" &&
         action.payload.pledgeAmount < 1
       ) {
-        alert("Must make a minimum pledge of $1");
-        return state;
+        return { ...state, pledgeError: true };
       }
 
       // if item has a reward
@@ -76,14 +80,7 @@ function reducer(
           ]
         ) {
           // if minimum amount is not met
-          alert(
-            `Minimum pledge of $${
-              state.items.filter((item) => item.id === action.payload.id)[0][
-                "minPledge"
-              ]
-            } for reward not met`
-          );
-          return state;
+          return { ...state, pledgeError: true };
         }
       }
 
@@ -110,11 +107,20 @@ const PledgeDataContext = createContext<IPledgeData>({
   totalPledged: 0,
   totalBackers: 0,
   daysLeft: 0,
+  pledgeError: false,
 });
 
 function PledgeDataProvider({ children }: { children: React.ReactNode }) {
   const [
-    { items, modalState, bookMarked, totalPledged, totalBackers, daysLeft },
+    {
+      items,
+      modalState,
+      bookMarked,
+      totalPledged,
+      totalBackers,
+      daysLeft,
+      pledgeError,
+    },
     dispatch,
   ] = useReducer(reducer, initialState);
 
@@ -128,6 +134,7 @@ function PledgeDataProvider({ children }: { children: React.ReactNode }) {
           totalPledged,
           totalBackers,
           daysLeft,
+          pledgeError,
           dispatch,
         } as IPledgeDataProvider
       }

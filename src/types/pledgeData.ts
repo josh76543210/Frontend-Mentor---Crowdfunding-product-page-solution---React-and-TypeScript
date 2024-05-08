@@ -11,6 +11,7 @@ export interface IPledgeData {
   totalPledged: number;
   totalBackers: number;
   daysLeft: number;
+  pledgeError: boolean;
 }
 
 export interface IPledgeDataProvider {
@@ -26,6 +27,7 @@ export interface IPledgeDataProvider {
   totalPledged: number;
   totalBackers: number;
   daysLeft: number;
+  pledgeError: boolean;
   // eslint-disable-next-line @typescript-eslint/ban-types
   dispatch: Function;
 }

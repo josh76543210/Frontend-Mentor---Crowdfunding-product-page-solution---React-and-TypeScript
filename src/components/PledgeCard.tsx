@@ -20,7 +20,7 @@ function PledgeCard({
 }) {
   const outOfStock = numLeft === 0;
 
-  const { modalState, dispatch } = usePledgeData();
+  const { modalState, pledgeError, dispatch } = usePledgeData();
 
   const active = id === modalState;
 
@@ -49,11 +49,21 @@ function PledgeCard({
           >
             {title}
           </h3>
-          {!noReward && (
-            <h4 className="font-semibold text-moderate-cyan">
+          {!noReward ? (
+            <h4
+              className={`font-semibold ${
+                pledgeError && modalState === id
+                  ? "text-red-600"
+                  : "text-moderate-cyan"
+              }`}
+            >
               Pledge ${minPledge} or more
             </h4>
-          )}
+          ) : pledgeError && modalState === id ? (
+            <h4 className={`font-semibold text-red-600`}>
+              Pledge ${minPledge} or more
+            </h4>
+          ) : null}
         </div>
         <Paragraph className="col-span-full">{description}</Paragraph>
         {!noReward && (
@@ -85,7 +95,9 @@ function PledgeCard({
                     setPledgeAmount(Number(inputString));
                   }
                 }}
-                className="py-4 border-2 rounded-full w-full shrink-1 focus:outline-none relative focus:border-2 focus:border-moderate-cyan h-full pl-9 font-bold"
+                className={`py-4 border-2 rounded-full w-full shrink-1 focus:outline-none relative h-full pl-9 font-bold ${
+                  pledgeError ? "border-red-600" : "focus:border-moderate-cyan"
+                }`}
               />
             </div>
             <Button
