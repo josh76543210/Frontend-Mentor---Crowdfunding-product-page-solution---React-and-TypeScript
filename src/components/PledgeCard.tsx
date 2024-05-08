@@ -73,7 +73,18 @@ function PledgeCard({
               <input
                 type="text"
                 value={pledgeAmount}
-                onChange={(e) => setPledgeAmount(Number(e.target.value))}
+                onChange={(e) => {
+                  // check for number and leading zeros
+                  const inputString = e.target.value.replace(/^0+/, "");
+                  console.log(e.target.value);
+                  console.log(Number(inputString.substring(1)));
+
+                  if (isNaN(Number(inputString))) {
+                    setPledgeAmount(0);
+                  } else {
+                    setPledgeAmount(Number(inputString));
+                  }
+                }}
                 className="py-4 border-2 rounded-full w-full shrink-1 focus:outline-none relative focus:border-2 focus:border-moderate-cyan h-full pl-9 font-bold"
               />
             </div>
