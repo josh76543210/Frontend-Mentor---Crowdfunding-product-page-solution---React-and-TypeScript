@@ -29,6 +29,12 @@ export default {
         "pledgeCard-2": "2rem minmax(0, 1fr)",
         "pledgeCard-3": "2rem minmax(0, 1fr) 5rem",
       },
+      width: {
+        "1/10": "10%",
+        "3/10": "30%",
+        "7/10": "70%",
+        "9/10": "90%",
+      },
     },
     fontFamily: {
       commissioner: ["Commissioner", "sans-serif"],
