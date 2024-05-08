@@ -58,15 +58,33 @@ function reducer(
     case "toggleBookmark":
       return { ...state, bookMarked: !state.bookMarked };
     case "makePledge":
-      // if minimun amount is not met
+      // if minimum amount of 1 is not met for "pledge with no reward"
       if (
-        action.payload.pledgeAmount <
-        state.items.filter((item) => item.id === action.payload.id)[0][
-          "minPledge"
-        ]
+        action.payload.id === "no-reward" &&
+        action.payload.pledgeAmount < 1
       ) {
-        alert("Minium pledge not met");
+        alert("Must make a minimum pledge of $1");
         return state;
+      }
+
+      // if item has a reward
+      if (action.payload.id !== "no-reward") {
+        if (
+          action.payload.pledgeAmount <
+          state.items.filter((item) => item.id === action.payload.id)[0][
+            "minPledge"
+          ]
+        ) {
+          // if minimum amount is not met
+          alert(
+            `Minimum pledge of $${
+              state.items.filter((item) => item.id === action.payload.id)[0][
+                "minPledge"
+              ]
+            } for reward not met`
+          );
+          return state;
+        }
       }
 
       return {
@@ -78,6 +96,7 @@ function reducer(
         }),
         modalState: "thanks",
         totalBackers: state.totalBackers + 1,
+        totalPledged: state.totalPledged + action.payload.pledgeAmount,
       };
     default:
       throw new Error("Action unknown");
