@@ -1,10 +1,25 @@
+import { useEffect } from "react";
 import { usePledgeData } from "../contexts/PledgeDataContext";
 import Modal from "../layouts/Modal";
 import Paragraph from "../layouts/Paragraph";
 import PledgeCard from "./PledgeCard";
 
 function PledgeModal() {
-  const { items } = usePledgeData();
+  const { items, modalState } = usePledgeData();
+
+  useEffect(() => {
+    // scroll to selected pledgeCard
+    if (
+      modalState &&
+      modalState !== "open" &&
+      modalState !== "closed" &&
+      modalState !== "thanks"
+    ) {
+      document
+        .getElementById(modalState)!
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [modalState]);
 
   return (
     <Modal>

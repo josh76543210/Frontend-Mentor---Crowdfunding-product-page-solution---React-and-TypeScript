@@ -28,6 +28,7 @@ function PledgeCard({
 
   return (
     <div
+      id={id}
       onClick={() => dispatch({ type: "setModal", payload: { id } })}
       className={`border-2 group ${
         active ? "border-moderate-cyan" : "cursor-pointer"
