@@ -54,7 +54,10 @@ function StatsSection() {
 
   return (
     <Section>
-      <div className="flex flex-col md-1:flex-row items-center md-1:items-stretch gap-8 md-1:gap-12 mb-10 text-center md-1:text-left">
+      <div
+        id="stats-section"
+        className="flex flex-col md-1:flex-row items-center md-1:items-stretch gap-8 md-1:gap-12 mb-10 text-center md-1:text-left"
+      >
         <Stat
           title={`$${numberWithCommas(totalPledged)}`}
           subTitle="of $100,000 backend"

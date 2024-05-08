@@ -53,6 +53,13 @@ function reducer(
     case "openPledgeModal":
       return { ...state, modalState: "open", pledgeError: false };
     case "closeModal":
+      // if coming from thanks modal
+      if (state.modalState === "thanks") {
+        document
+          .getElementById("stats-section")!
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
       return { ...state, modalState: "closed", pledgeError: false };
     case "setModal":
       return {
