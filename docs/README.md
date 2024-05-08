@@ -46,7 +46,7 @@ Users should be able to:
 
 ### What I learned
 
-Using the useReducer and useContext React hooks together to manage the state of the project:
+The ability to create a more complex yet still intuitive and easy to use application that moves between and keeps track of many different states. This was done by using useReducer to have all the state logic in one place and useContext to prevent excessive prop-drilling. One thing I need to improve on is how to use Typescript properly to implement type-checking (especially for the context).
 
 ```tsx
 function PledgeDataProvider({ children }: { children: React.ReactNode }) {
