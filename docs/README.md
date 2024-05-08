@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here]()
-- Live Site URL: [Add live site URL here]()
+- Solution URL: [https://www.frontendmentor.io/solutions/crowdfunding-product-page-4R0MXdtdtl](https://www.frontendmentor.io/solutions/crowdfunding-product-page-4R0MXdtdtl)
+- Live Site URL: [https://josh76543210-fm-crowdfunding-product.netlify.app/](https://josh76543210-fm-crowdfunding-product.netlify.app/)
 
 ## My process
 
