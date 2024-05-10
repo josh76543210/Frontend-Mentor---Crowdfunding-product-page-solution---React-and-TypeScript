@@ -107,15 +107,9 @@ function reducer(
   }
 }
 
-const PledgeDataContext = createContext<IPledgeData>({
-  items: [],
-  modalState: "closed",
-  bookMarked: false,
-  totalPledged: 0,
-  totalBackers: 0,
-  daysLeft: 0,
-  pledgeError: false,
-});
+const PledgeDataContext = createContext<IPledgeDataProvider | undefined>(
+  undefined
+);
 
 function PledgeDataProvider({ children }: { children: React.ReactNode }) {
   const [
@@ -133,18 +127,16 @@ function PledgeDataProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <PledgeDataContext.Provider
-      value={
-        {
-          items,
-          modalState,
-          bookMarked,
-          totalPledged,
-          totalBackers,
-          daysLeft,
-          pledgeError,
-          dispatch,
-        } as IPledgeDataProvider
-      }
+      value={{
+        items,
+        modalState,
+        bookMarked,
+        totalPledged,
+        totalBackers,
+        daysLeft,
+        pledgeError,
+        dispatch,
+      }}
     >
       {children}
     </PledgeDataContext.Provider>
@@ -158,7 +150,7 @@ function usePledgeData() {
     throw new Error(
       "PledgeDataContext was used outside of the PledgeDataProvider"
     );
-  return context as IPledgeDataProvider;
+  return context;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
