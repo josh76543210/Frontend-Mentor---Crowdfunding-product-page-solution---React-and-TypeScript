@@ -87,8 +87,8 @@ function PledgeCard({
                 onChange={(e) => {
                   // check for number and leading zeros
                   const inputString = e.target.value.replace(/^0+/, "");
-                  console.log(e.target.value);
-                  console.log(Number(inputString.substring(1)));
+                  // console.log(e.target.value);
+                  // console.log(Number(inputString.substring(1)));
 
                   if (isNaN(Number(inputString))) {
                     setPledgeAmount(0);
